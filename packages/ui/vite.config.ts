@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import federation from '@originjs/vite-plugin-federation';
+import { federation } from '@module-federation/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,7 +10,11 @@ export default defineConfig({
       exposes: {
         './components': './src/index.ts',
       },
-      shared: ['lit'],
+      shared: {
+        lit: {
+          singleton: true,
+        },
+      },
     }),
   ],
   build: {

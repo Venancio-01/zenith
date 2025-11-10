@@ -6,6 +6,7 @@
   "scripts": {
     "prepare": "husky",
     "lint": "turbo run lint",
+    "lint:fix": "turbo run lint -- --fix",
     "build": "turbo run build",
     "test": "turbo run test",
     "dev": "turbo run dev",
@@ -13,12 +14,10 @@
     "typecheck": "turbo run typecheck"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
+    "*.{ts,tsx,js,jsx}": "turbo run lint:fix"
   },
   "devDependencies": {
+    "@zenith/eslint-config": "workspace:*",
     "@eslint/js": "^9.39.1",
     "@tailwindcss/postcss": "^4.1.17",
     "@typescript-eslint/eslint-plugin": "^8.46.3",

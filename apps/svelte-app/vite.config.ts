@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
-import federation from '@originjs/vite-plugin-federation';
+import { federation } from '@module-federation/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,13 +13,24 @@ export default defineConfig({
         './App': './src/main.ts',
       },
       remotes: {
-        ui: 'http://localhost:5173/remoteEntry.js',
-        store: 'http://localhost:4178/remoteEntry.js',
+        ui: {
+          type: 'module',
+          name: 'ui',
+          entry: 'http://localhost:5173/remoteEntry.js',
+          entryGlobalName: 'ui',
+          shareScope: 'default',
+        },
       },
       shared: {
-        svelte: {},
-        zustand: {},
-        '@zenith/store': {},
+        svelte: {
+          singleton: true,
+        },
+        zustand: {
+          singleton: true,
+        },
+        '@zenith/store': {
+          singleton: true,
+        },
       },
     }),
   ],

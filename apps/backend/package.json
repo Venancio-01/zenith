@@ -6,18 +6,23 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
+    "lint": "eslint .",
     "start": "node dist/index.js",
     "type-check": "tsc --noEmit",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "hono": "^4.10.4",
+    "@hono/node-server": "^1.13.1",
     "@hono/trpc-server": "^0.4.0",
     "@trpc/server": "^11.7.1",
     "@zenith/api": "workspace:*",
     "@zenith/db": "workspace:*"
   },
   "devDependencies": {
+    "@zenith/eslint-config": "workspace:*",
+    "@zenith/ts-config": "workspace:*",
+    "eslint": "^9.36.0",
     "typescript": "^5.9.3",
     "@types/node": "^22.10.2",
     "tsx": "^4.19.2"

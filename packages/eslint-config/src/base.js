@@ -4,9 +4,16 @@ import prettier from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
 import globals from 'globals';
 
-export default tseslint.config(
+const createBase = (extraGlobals = {}) => [
   {
-    ignores: ['dist', 'node_modules', '*.config.js', '*.config.ts'],
+    ignores: [
+      'dist',
+      'node_modules',
+      '*.config.js',
+      '*.config.ts',
+      '.__mf__*',
+      '__mf__*',
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -16,8 +23,8 @@ export default tseslint.config(
       ecmaVersion: 2022,
       sourceType: 'module',
       globals: {
-        ...globals.node,
         ...globals.es2022,
+        ...extraGlobals,
       },
     },
     plugins: {
@@ -31,5 +38,8 @@ export default tseslint.config(
         { argsIgnorePattern: '^_' },
       ],
     },
-  }
-);
+  },
+];
+
+export default createBase();
+export { createBase };

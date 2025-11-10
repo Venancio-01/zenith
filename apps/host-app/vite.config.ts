@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import federation from '@originjs/vite-plugin-federation';
+import { federation } from '@module-federation/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,16 +9,45 @@ export default defineConfig({
     federation({
       name: 'host-app',
       remotes: {
-        'vue-app': 'http://localhost:4174/assets/remoteEntry.js',
-        'react-app': 'http://localhost:4175/assets/remoteEntry.js',
-        'svelte-app': 'http://localhost:4176/assets/remoteEntry.js',
-        ui: 'http://localhost:4173/assets/remoteEntry.js',
-        store: 'http://localhost:4178/remoteEntry.js',
+        'vue-app': {
+          type: 'module',
+          name: 'vue-app',
+          entry: 'http://localhost:5174/remoteEntry.js',
+          entryGlobalName: 'vue-app',
+          shareScope: 'default',
+        },
+        'react-app': {
+          type: 'module',
+          name: 'react-app',
+          entry: 'http://localhost:5175/remoteEntry.js',
+          entryGlobalName: 'react-app',
+          shareScope: 'default',
+        },
+        'svelte-app': {
+          type: 'module',
+          name: 'svelte-app',
+          entry: 'http://localhost:5176/remoteEntry.js',
+          entryGlobalName: 'svelte-app',
+          shareScope: 'default',
+        },
+        ui: {
+          type: 'module',
+          name: 'ui',
+          entry: 'http://localhost:5173/remoteEntry.js',
+          entryGlobalName: 'ui',
+          shareScope: 'default',
+        },
       },
       shared: {
-        vue: {},
-        zustand: {},
-        '@zenith/store': {},
+        vue: {
+          singleton: true,
+        },
+        zustand: {
+          singleton: true,
+        },
+        '@zenith/store': {
+          singleton: true,
+        },
       },
     }),
   ],

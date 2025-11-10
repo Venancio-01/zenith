@@ -3,7 +3,7 @@ import Counter from './components/Counter.vue';
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
+  <div class="w-full bg-gray-50 dark:bg-gray-900 p-8">
     <div class="max-w-4xl mx-auto">
       <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
         Vue Remote App

@@ -76,3 +76,6 @@ Desktop.ini
 *.pem
 *.key
 .cert/
+
+# Mcp
+.serena/

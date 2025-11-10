@@ -2,10 +2,12 @@
   "name": "@zenith/api",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "main": "./src/router.ts",
   "types": "./src/router.ts",
   "scripts": {
     "build": "tsc",
+    "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "typecheck": "tsc --noEmit"
   },
@@ -14,6 +16,9 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@zenith/eslint-config": "workspace:*",
+    "@zenith/ts-config": "workspace:*",
+    "eslint": "^9.36.0",
     "typescript": "^5.9.3",
     "@types/node": "^22.10.2"
   }

@@ -6,6 +6,7 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "scripts": {
+    "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "typecheck": "tsc --noEmit"
   },
@@ -13,6 +14,9 @@
     "zustand": "^5.0.2"
   },
   "devDependencies": {
+    "@zenith/eslint-config": "workspace:*",
+    "@zenith/ts-config": "workspace:*",
+    "eslint": "^9.36.0",
     "typescript": "^5.9.3"
   }
 }

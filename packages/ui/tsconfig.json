@@ -1,27 +1,11 @@
 {
+  "extends": "@zenith/ts-config/tsconfig.web-lib.json",
   "compilerOptions": {
-    "target": "ES2022",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
-    "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["vite/client"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.ui.tsbuildinfo",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "noEmit": true
   },
-  "include": ["src"]
+  "include": ["src", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "tests", "**/*.test.*", "**/*.spec.*"]
 }

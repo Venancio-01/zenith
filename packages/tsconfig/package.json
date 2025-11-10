@@ -1,8 +1,14 @@
 {
-  "name": "@zenith/tsconfig",
+  "name": "@zenith/ts-config",
   "version": "0.0.0",
   "private": true,
   "main": "tsconfig.base.json",
-  "files": ["tsconfig.base.json"]
+  "files": [
+    "tsconfig.base.json",
+    "tsconfig.lib.json",
+    "tsconfig.web-lib.json",
+    "tsconfig.app.json",
+    "tsconfig.node.json"
+  ]
 }
 

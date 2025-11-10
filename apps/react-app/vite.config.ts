@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import federation from '@originjs/vite-plugin-federation';
+import { federation } from '@module-federation/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,14 +13,27 @@ export default defineConfig({
         './App': './src/main.tsx',
       },
       remotes: {
-        ui: 'http://localhost:5173/remoteEntry.js',
-        store: 'http://localhost:4178/remoteEntry.js',
+        ui: {
+          type: 'module',
+          name: 'ui',
+          entry: 'http://localhost:5173/remoteEntry.js',
+          entryGlobalName: 'ui',
+          shareScope: 'default',
+        },
       },
       shared: {
-        react: {},
-        'react-dom': {},
-        zustand: {},
-        '@zenith/store': {},
+        react: {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        },
+        zustand: {
+          singleton: true,
+        },
+        '@zenith/store': {
+          singleton: true,
+        },
       },
     }),
   ],

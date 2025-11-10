@@ -7,6 +7,7 @@
     "dev": "vite",
     "build:watch": "vite build --watch",
     "build": "vue-tsc -b && vite build",
+    "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "vue-tsc -b --noEmit"
   },
@@ -19,11 +20,14 @@
     "zustand": "^5.0.2"
   },
   "devDependencies": {
-    "@originjs/vite-plugin-federation": "^1.4.1",
+    "@module-federation/vite": "^1.9.0",
     "@types/node": "^24.6.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
+    "@zenith/eslint-config": "workspace:*",
+    "@zenith/ts-config": "workspace:*",
     "autoprefixer": "^10.4.21",
+    "eslint": "^9.36.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
     "typescript": "~5.9.3",
