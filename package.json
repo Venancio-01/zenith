@@ -14,7 +14,7 @@
     "typecheck": "turbo run typecheck"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "turbo run lint:fix"
+    "*.{ts,tsx,js,jsx,vue,svelte}": "prettier --write"
   },
   "devDependencies": {
     "@zenith/eslint-config": "workspace:*",
